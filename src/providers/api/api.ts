@@ -1,0 +1,24 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+/*
+  Generated class for the ApiProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+@Injectable()
+export class ApiProvider {
+
+  constructor(public http: HttpClient) {}
+
+  getRecommendations(): Observable<any> {
+    return this.http.get("https://mymovie-3a3a8.appspot.com/api/get_recommendations");
+  }
+
+  getMovieInfo(tmdbId: string): Observable<any> {
+    return this.http.get("https://api.themoviedb.org/3/movie/" + tmdbId + "?api_key=e469972cad8b86556b25f9be119f76b9");
+  }
+
+}
