@@ -7,7 +7,7 @@
 <ion-content padding>
   <ion-searchbar (ionInput)="getMovs($event)"></ion-searchbar>
 
-  <ion-card *ngFor="let mov of (searchItems | async)?.results" (click)="openMovDetailsPage(mov)" style="max-width: 300px; margin: 30px" >
+  <ion-card *ngFor="let mov of (searchItems | async)?.results" (click)="openMovDetailsPage(mov)" style="max-width: 300px; margin: auto; margin-bottom: 30px; margin-top: 20px" >
     <img src="https://image.tmdb.org/t/p/original{{mov.poster_path}}" style="max-width: 300px; max-height: 300px">
     <ion-card-content>
       <p>{{mov.overview}}</p>

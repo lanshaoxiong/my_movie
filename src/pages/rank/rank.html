@@ -26,7 +26,7 @@
 <ion-content>
     <div [ngSwitch]="rank">
       <ion-list *ngSwitchCase="'pupular'">
-          <ion-card *ngFor="let mov of (popularList | async)?.results" (click)="openMovDetailsPage(mov)" style="max-width: 300px; margin: 30px" >
+          <ion-card *ngFor="let mov of (popularList | async)?.results" (click)="openMovDetailsPage(mov)" style="max-width: 300px; margin: auto; margin-bottom: 30px; margin-top: 20px" >
               <img src="https://image.tmdb.org/t/p/original{{mov.poster_path}}" style="max-width: 300px; max-height: 300px">
               <ion-card-content>
                 <p>{{mov.overview}}</p>
@@ -35,7 +35,7 @@
       </ion-list>
   
       <ion-list *ngSwitchCase="'newest'">
-          <ion-card *ngFor="let mov of (newestList | async)?.results" (click)="openMovDetailsPage(mov)" style="max-width: 300px; margin: 30px" >
+          <ion-card *ngFor="let mov of (newestList | async)?.results" (click)="openMovDetailsPage(mov)" style="max-width: 300px; margin: auto; margin-bottom: 30px; margin-top: 20px" >
               <img src="https://image.tmdb.org/t/p/original{{mov.poster_path}}" style="max-width: 300px; max-height: 300px">
               <ion-card-content>
                 <p>{{mov.overview}}</p>
@@ -44,7 +44,7 @@
       </ion-list>
   
       <ion-list *ngSwitchCase="'highest'">
-          <ion-card *ngFor="let mov of (highestList | async)?.results" (click)="openMovDetailsPage(mov)" style="max-width: 300px; margin: 30px" >
+          <ion-card *ngFor="let mov of (highestList | async)?.results" (click)="openMovDetailsPage(mov)" style="max-width: 300px; margin: auto; margin-bottom: 30px; margin-top: 20px" >
               <img src="https://image.tmdb.org/t/p/original{{mov.poster_path}}" style="max-width: 300px; max-height: 300px">
               <ion-card-content>
                 <p>{{mov.overview}}</p>
