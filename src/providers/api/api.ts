@@ -27,4 +27,20 @@ export class ApiProvider {
         headers: { 'Content-Type': 'application/json' }
       })
   }
+
+  getPopularMovies(): Observable<any> {
+    return this.http.get("https://api.themoviedb.org/3/discover/movie?api_key=e469972cad8b86556b25f9be119f76b9&sort_by=popularity.desc&page=1");
+  }
+
+  getHighestRateMovies(): Observable<any> {
+    return this.http.get("https://api.themoviedb.org/3/discover/movie?api_key=e469972cad8b86556b25f9be119f76b9&sort_by=vote_average.desc&page=1&vote_count.gte=100");
+  }
+
+  getNewestMovies():Observable<any> {
+    return this.http.get("https://api.themoviedb.org/3/discover/movie?api_key=e469972cad8b86556b25f9be119f76b9&sort_by=primary_release_date.asc&page=1&primary_release_date.gte=now");
+  }
+
+  getSearchedMovies(query: string): Observable<any> {
+    return this.http.get("https://api.themoviedb.org/3/search/movie?api_key=e469972cad8b86556b25f9be119f76b9&query=" + query + "&page=1");
+  }
 }

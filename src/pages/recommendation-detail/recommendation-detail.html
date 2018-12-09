@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>recommendationDetail</ion-title>
+    <ion-title>Recommendation Detail</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,7 +18,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <img src="http://image.tmdb.org/t/p/original{{rec.poster_path}}" style="margin: auto;">
+        <img src="https://image.tmdb.org/t/p/original{{rec.poster_path}}" style="margin: auto;">
       </ion-col>
     </ion-row>
     <ion-row>
@@ -35,8 +35,8 @@
         <P>{{rec.release_date}}</P>
       </ion-col>
       <ion-col>
-        <h5>Genres</h5>
-        <P>{{rec.genres[0].name}}</P>
+        <h5>TMDB Popularity</h5>
+        <P>{{rec.popularity}}</P>
       </ion-col>
       <ion-col>
         <h5>Language</h5>

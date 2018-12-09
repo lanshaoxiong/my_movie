@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { NavParams, Events, AlertController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { Observable } from 'rxjs';
 
-@IonicPage()
 @Component({
   selector: 'page-recommendation-detail',
   templateUrl: 'recommendation-detail.html',
@@ -15,7 +14,8 @@ export class RecommendationDetailPage {
 
   constructor(public navParams: NavParams,
     public events: Events,
-    public apiProvider: ApiProvider) {
+    public apiProvider: ApiProvider,
+    public alerCtrl: AlertController) {
     this.rec = navParams.data.rec;
 
     this.events.subscribe('star-rating:changed', (starRating) => {
@@ -30,7 +30,13 @@ export class RecommendationDetailPage {
     this.response.subscribe(result => {
       console.log("response: ", result);
     });
-   
+
+    let alert = this.alerCtrl.create({
+      title: 'Make a Rate!',
+      message: 'You have already made a rate!. We will recommend more movies based on your rating!',
+      buttons: ['Ok']
+    });
+    alert.present()
   }
 
   ionViewDidLoad() {

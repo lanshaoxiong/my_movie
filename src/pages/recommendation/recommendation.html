@@ -15,8 +15,8 @@
 
 <ion-content padding>
 
-  <ion-card *ngFor="let rec of (recommendations | async)" (click) = "openRecDetailsPage(rec)" style="max-width: 300px; margin: auto">
-    <img src="http://image.tmdb.org/t/p/original{{rec.poster_path}}" style="max-width: 300px; max-height: 300px">
+  <ion-card *ngFor="let rec of (recommendations | async)" (click) = "openRecDetailsPage(rec)" style="max-width: 300px; margin: 30px">
+    <img src="https://image.tmdb.org/t/p/original{{rec.poster_path}}" style="max-width: 300px; max-height: 300px">
     <ion-card-content>
       <p>{{rec.overview}}</p>
     </ion-card-content>

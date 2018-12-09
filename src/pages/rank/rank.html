@@ -1,0 +1,55 @@
+<!--
+  Generated template for the RankPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>Rank List</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="rank">
+      <ion-segment-button value="pupular">
+        Popular
+      </ion-segment-button>
+      <ion-segment-button value="newest">
+        Newest
+      </ion-segment-button>
+      <ion-segment-button value="highest">
+        Highest
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div [ngSwitch]="rank">
+      <ion-list *ngSwitchCase="'pupular'">
+          <ion-card *ngFor="let mov of (popularList | async)?.results" (click)="openMovDetailsPage(mov)" style="max-width: 300px; margin: 30px" >
+              <img src="https://image.tmdb.org/t/p/original{{mov.poster_path}}" style="max-width: 300px; max-height: 300px">
+              <ion-card-content>
+                <p>{{mov.overview}}</p>
+              </ion-card-content>
+            </ion-card>
+      </ion-list>
+  
+      <ion-list *ngSwitchCase="'newest'">
+          <ion-card *ngFor="let mov of (newestList | async)?.results" (click)="openMovDetailsPage(mov)" style="max-width: 300px; margin: 30px" >
+              <img src="https://image.tmdb.org/t/p/original{{mov.poster_path}}" style="max-width: 300px; max-height: 300px">
+              <ion-card-content>
+                <p>{{mov.overview}}</p>
+              </ion-card-content>
+            </ion-card>
+      </ion-list>
+  
+      <ion-list *ngSwitchCase="'highest'">
+          <ion-card *ngFor="let mov of (highestList | async)?.results" (click)="openMovDetailsPage(mov)" style="max-width: 300px; margin: 30px" >
+              <img src="https://image.tmdb.org/t/p/original{{mov.poster_path}}" style="max-width: 300px; max-height: 300px">
+              <ion-card-content>
+                <p>{{mov.overview}}</p>
+              </ion-card-content>
+            </ion-card>
+      </ion-list>
+    </div>
+  </ion-content>

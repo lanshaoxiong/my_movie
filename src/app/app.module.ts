@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -14,14 +13,15 @@ import { StarRatingModule } from 'ionic3-star-rating';
 import { RecommendationPage } from '../pages/recommendation/recommendation';
 import { HttpClientModule } from '@angular/common/http';
 import { RecommendationDetailPage } from '../pages/recommendation-detail/recommendation-detail';
+import { RankPage } from '../pages/rank/rank';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
     HomePage,
     TabsPage,
-    RecommendationPage, 
+    RankPage,
+    RecommendationPage,
     RecommendationDetailPage
   ],
   imports: [
@@ -33,9 +33,9 @@ import { RecommendationDetailPage } from '../pages/recommendation-detail/recomme
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
     HomePage,
     TabsPage,
+    RankPage,
     RecommendationPage,
     RecommendationDetailPage
   ],

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { NavController, NavParams} from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { Observable } from 'rxjs';
 import { mergeMap, map, toArray } from 'rxjs/operators';
@@ -12,7 +12,6 @@ import { RecommendationDetailPage } from '../recommendation-detail/recommendatio
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-recommendation',
   templateUrl: 'recommendation.html',
