@@ -1,0 +1,64 @@
+<!--
+  Generated template for the RecommendationDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>recommendationDetail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img src="http://image.tmdb.org/t/p/original{{rec.poster_path}}" style="margin: auto;">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h2> {{rec.original_title}}</h2>
+        <h5>Overview</h5>
+        <P>{{rec.overview}}</P>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h5>Release Date</h5>
+        <P>{{rec.release_date}}</P>
+      </ion-col>
+      <ion-col>
+        <h5>Genres</h5>
+        <P>{{rec.genres[0].name}}</P>
+      </ion-col>
+      <ion-col>
+        <h5>Language</h5>
+        <p>{{rec.original_language}}</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h5>Average Rate / Vote Count (<a href="https://www.themoviedb.org/movie/{{rec.id}}">TMDB</a>)</h5>
+        <p>{{rec.vote_average}} / {{rec.vote_count}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ionic3-star-rating activeIcon="md-star" defaultIcon="md-star-outline" activeColor="#FFC601" defaultColor="#f4f4f4"
+    readonly="false" [rating]="3">
+  </ionic3-star-rating>
+
+  <button ion-button icon-start full (click)="makeARate()">
+    <ion-icon name="md-star"></ion-icon>
+    Make a Rate
+  </button>
+
+</ion-content>

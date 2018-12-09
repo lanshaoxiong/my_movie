@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { Observable } from 'rxjs';
-import { mergeMap, map, toArray} from 'rxjs/operators';
+import { mergeMap, map, toArray } from 'rxjs/operators';
 import { from } from 'rxjs/observable/from';
+import { RecommendationDetailPage } from '../recommendation-detail/recommendation-detail';
 /**
  * Generated class for the RecommendationPage page.
  *
@@ -19,12 +20,12 @@ import { from } from 'rxjs/observable/from';
 export class RecommendationPage {
 
   recommendations: Observable<any>;
-  ratings: number = 4;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public apiProvider: ApiProvider,
-    public events: Events) {
+    public apiProvider: ApiProvider) {}
+
+  ionViewWillEnter() {
     this.recommendations = this.apiProvider.getRecommendations()
       .pipe(map(response => response.recommendations),
         mergeMap(recArray => from(recArray)),
@@ -35,14 +36,10 @@ export class RecommendationPage {
 
     this.recommendations.subscribe(data => {
       console.log('my recommendation: ', data);
-
-      this.events.subscribe('star-rating:changed', (starRating) => {
-        console.log(starRating);
-        this.ratings = starRating;
-      })
     });
   }
 
-
-
+  openRecDetailsPage(rec) {
+    this.navCtrl.push(RecommendationDetailPage, { rec: rec });
+  }
 }

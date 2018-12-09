@@ -4,7 +4,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -14,15 +13,16 @@ import { ApiProvider } from '../providers/api/api';
 import { StarRatingModule } from 'ionic3-star-rating';
 import { RecommendationPage } from '../pages/recommendation/recommendation';
 import { HttpClientModule } from '@angular/common/http';
+import { RecommendationDetailPage } from '../pages/recommendation-detail/recommendation-detail';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
     HomePage,
     TabsPage,
-    RecommendationPage
+    RecommendationPage, 
+    RecommendationDetailPage
   ],
   imports: [
     BrowserModule,
@@ -34,16 +34,16 @@ import { HttpClientModule } from '@angular/common/http';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
     HomePage,
     TabsPage,
-    RecommendationPage
+    RecommendationPage,
+    RecommendationDetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     ApiProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

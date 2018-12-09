@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class ApiProvider {
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient) { }
 
   getRecommendations(): Observable<any> {
     return this.http.get("https://mymovie-3a3a8.appspot.com/api/get_recommendations");
@@ -21,4 +21,10 @@ export class ApiProvider {
     return this.http.get("https://api.themoviedb.org/3/movie/" + tmdbId + "?api_key=e469972cad8b86556b25f9be119f76b9");
   }
 
+  makeMovieRate(userId: string, tmdbId: string, ratings: number): Observable<any> {
+    return this.http.post('https://mymovie-3a3a8.appspot.com/api/make_rate?userId=' + userId + '&tmdbId=' + tmdbId + '&ratings=' + ratings,
+      {
+        headers: { 'Content-Type': 'application/json' }
+      })
+  }
 }
