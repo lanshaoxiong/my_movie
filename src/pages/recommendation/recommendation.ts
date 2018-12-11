@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams} from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { Observable } from 'rxjs';
-import { mergeMap, map, toArray } from 'rxjs/operators';
+import { mergeMap, map, toArray, catchError } from 'rxjs/operators';
 import { from } from 'rxjs/observable/from';
 import { RecommendationDetailPage } from '../recommendation-detail/recommendation-detail';
 /**
@@ -30,6 +30,8 @@ export class RecommendationPage {
         mergeMap(recArray => from(recArray)),
         map(rec => (rec as any).tmdbId),
         mergeMap(tmdbId => this.apiProvider.getMovieInfo(tmdbId)),
+        // catchError(error => Observable.empty()),
+        catchError(error => Observable.of(error)),
         toArray()
       );
 
