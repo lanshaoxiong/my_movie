@@ -1,8 +1,10 @@
 # my_movie
-personal project: movie recommendation system PWA App.  https://mymovie-3a3a8.firebaseapp.com/
+Personal project: Movie Recommendation System PWA App.  https://mymovie-3a3a8.firebaseapp.com/
+
+the demo slides: https://docs.google.com/presentation/d/1pPJeYStBNmZG7Xnm0sd1XOu3tzl8SKD6u_IEQQRAEL8/edit?usp=sharing
 
 ### Keyword
-Recommendation System, Spark, Collaborative Filtering (ALS), PWA, Google DataProc, Ionic, Angular, Typescript...
+Recommendation System, Spark, Collaborative Filtering (ALS), PWA, PySpark, Webapp2, Google DataProc, Ionic, Angular, Typescript, Firebase, Crossing-Platform Application ...
 
 
 
